@@ -41,3 +41,17 @@ in a `LAB:` line, so the log shows each bean created during the calls without th
 | fix: Tickets built | 3, one per call | `Creating instance of bean 'ticket'` (L15, L19, L23) then `LAB: Ticket #1/#2/#3 constructed` |
 | fix: the 3 calls | 3 Tickets, 3 identities | L18 `#1 67a056f1`, L22 `#2 72ed9aad`, L26 `#3 4690f583` |
 | A/B shape | field, constructor, call | JUnit `VariantShapeTest`: exactly those 4 rows differ in the class body |
+
+## Episode 3: @Configuration vs @Component, lite mode (`ep3-configuration/`)
+
+**State: DONE, 22 Oct 2026.** Tests: 4 JUnit + 9 evidence tests green. Logging: DEBUG
+`org.springframework.beans.factory.support.DefaultListableBeanFactory` (one "Creating shared instance of singleton
+bean" per singleton), TRACE `org.springframework.context.annotation.ConfigurationClassEnhancer`.
+
+| | Expected (acc M3) | Measured |
+|---|---|---|
+| `Creating shared instance of singleton bean 'auditLog'` | once in both runs | ep3-trap L36, ep3-fix L37: once each |
+| AuditLog constructor runs | trap 2, fix 1 | trap L38 `#1`, L40 `#2`; fix L39 `#1` only |
+| `Successfully enhanced lab.fix.AppBeans; enhanced class name is: lab.fix.AppBeans$$SpringCGLIB$$0` | fix only | ep3-fix L15; absent in the trap |
+| same object? | trap false, fix true | trap L85 `false` (identityHashCode 247667dd vs 6f099cef), fix L85 `true` (4d74c3ba twice) |
+| one change | `@Component` -> `@Configuration` | JUnit `VariantShapeTest`: only the annotation row and the profile row differ in the class |

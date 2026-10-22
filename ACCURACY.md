@@ -41,3 +41,15 @@ Line numbers are 1-based lines of `run.jsonl` (one JSON object per captured phys
 | fix calls: `#1 67a056f1`, `#2 72ed9aad`, `#3 4690f583` | ep2-fix L18, L22, L26 |
 | docs quote "The prototype instance is the sole instance that is ever supplied to the singleton-scoped bean." | https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html (fetched 22 Oct 2026) |
 | follow-up: destruction callbacks of prototypes are not called | same page: "in the case of prototypes, configured destruction lifecycle callbacks are not called" |
+
+## Episode 3
+
+| Shown in the video | Source |
+|---|---|
+| `@Component` / `@Configuration` | `ep3-configuration/src/main/java/lab/trap/AppBeans.java` L9 / `.../fix/AppBeans.java` L9 |
+| `@Bean` recipes, `return new OrderService(auditLog());` | trap/AppBeans.java L13-21 (L20) |
+| `Creating shared instance of singleton bean 'auditLog'` | ep3-trap run.jsonl L36; ep3-fix L37 |
+| `LAB: AuditLog constructor ran, #1` / `#2` | ep3-trap L38 / L40; ep3-fix L39 (#1 only) |
+| `Successfully enhanced lab.fix.AppBeans; enhanced class name is: lab.fix.AppBeans$$SpringCGLIB$$0` | ep3-fix L15 |
+| `LAB: same object? false` / `true` | ep3-trap L85 / ep3-fix L85 |
+| docs quote "behaves just like a regular method call, creating a new instance every time" | https://docs.spring.io/spring-framework/reference/core/beans/java/basic-concepts.html (fetched 22 Oct 2026) |
