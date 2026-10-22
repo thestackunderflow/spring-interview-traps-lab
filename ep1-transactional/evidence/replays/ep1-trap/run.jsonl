@@ -1,0 +1,26 @@
+{"seq":0,"stream":"stdout","tRecvMs":0,"text":""}
+{"seq":1,"stream":"stdout","tRecvMs":0.029,"text":"  .   ____          _            __ _ _"}
+{"seq":2,"stream":"stdout","tRecvMs":0.03,"text":" /\\\\ / ___'_ __ _ _(_)_ __  __ _ \\ \\ \\ \\"}
+{"seq":3,"stream":"stdout","tRecvMs":0.031,"text":"( ( )\\___ | '_ | '_| | '_ \\/ _` | \\ \\ \\ \\"}
+{"seq":4,"stream":"stdout","tRecvMs":0.032,"text":" \\\\/  ___)| |_)| | | | | || (_| |  ) ) ) )"}
+{"seq":5,"stream":"stdout","tRecvMs":0.033,"text":"  '  |____| .__|_| |_|_| |_\\__, | / / / /"}
+{"seq":6,"stream":"stdout","tRecvMs":0.034,"text":" =========|_|==============|___/=/_/_/_/"}
+{"seq":7,"stream":"stdout","tRecvMs":0.035,"text":""}
+{"seq":8,"stream":"stdout","tRecvMs":0.13,"text":" :: Spring Boot ::                (v4.1.2)"}
+{"seq":9,"stream":"stdout","tRecvMs":0.137,"text":""}
+{"seq":10,"stream":"stdout","tRecvMs":30.257,"text":"2026-10-22T13:06:38.795Z  INFO 1 --- [ep1] [           main] lab.TrapApp                              : Starting TrapApp v1.0 using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /)"}
+{"seq":11,"stream":"stdout","tRecvMs":31.002,"text":"2026-10-22T13:06:38.797Z  INFO 1 --- [ep1] [           main] lab.TrapApp                              : The following 1 profile is active: \"trap\""}
+{"seq":12,"stream":"stdout","tRecvMs":408.52,"text":"2026-10-22T13:06:39.174Z  INFO 1 --- [ep1] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting..."}
+{"seq":13,"stream":"stdout","tRecvMs":509.055,"text":"2026-10-22T13:06:39.274Z  INFO 1 --- [ep1] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:shop user=SA"}
+{"seq":14,"stream":"stdout","tRecvMs":509.878,"text":"2026-10-22T13:06:39.276Z  INFO 1 --- [ep1] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed."}
+{"seq":15,"stream":"stdout","tRecvMs":627.092,"text":"2026-10-22T13:06:39.393Z  INFO 1 --- [ep1] [           main] lab.TrapApp                              : Started TrapApp in 0.888 seconds (process running for 1.171)"}
+{"seq":16,"stream":"stdout","tRecvMs":628.689,"text":"LAB: calling placeOrder(\"book\") from outside the bean"}
+{"seq":17,"stream":"stdout","tRecvMs":630.373,"text":"2026-10-22T13:06:39.396Z DEBUG 1 --- [ep1] [           main] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL update"}
+{"seq":18,"stream":"stdout","tRecvMs":630.735,"text":"2026-10-22T13:06:39.397Z DEBUG 1 --- [ep1] [           main] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [insert into orders(item) values (?)]"}
+{"seq":19,"stream":"stdout","tRecvMs":636.595,"text":"LAB: at the insert, transaction active = false"}
+{"seq":20,"stream":"stdout","tRecvMs":636.696,"text":"LAB: placeOrder threw PaymentDeclinedException: card declined for book"}
+{"seq":21,"stream":"stdout","tRecvMs":637.842,"text":"2026-10-22T13:06:39.404Z DEBUG 1 --- [ep1] [           main] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query"}
+{"seq":22,"stream":"stdout","tRecvMs":638.01,"text":"2026-10-22T13:06:39.404Z DEBUG 1 --- [ep1] [           main] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [select count(*) from orders]"}
+{"seq":23,"stream":"stdout","tRecvMs":646.935,"text":"LAB: orders after failure = 1"}
+{"seq":24,"stream":"stdout","tRecvMs":649.949,"text":"2026-10-22T13:06:39.416Z  INFO 1 --- [ep1] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated..."}
+{"seq":25,"stream":"stdout","tRecvMs":672.898,"text":"2026-10-22T13:06:39.439Z  INFO 1 --- [ep1] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed."}

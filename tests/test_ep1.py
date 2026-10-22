@@ -80,11 +80,15 @@ class BeforeAfterPanel(unittest.TestCase):
         with open(path, encoding='utf-8') as f:
             rows = [r.rstrip('\n') for r in f]
         trap, fix = lines('ep1-trap'), lines('ep1-fix')
-        for r in rows:
+        for r in rows:   # '# ...' rows are our labels; a trailing ' …' marks a cut line (the rest is verbatim)
+            body = r[6:][:-2] if r.endswith(' …') else r[6:]
             if r.startswith('trap: '):
-                self.assertTrue(any(r[6:] in t for t in trap), r)
+                self.assertTrue(any(body in t for t in trap), r)
             elif r.startswith('fix:  '):
-                self.assertTrue(any(r[6:] in t for t in fix), r)
+                self.assertTrue(any(body in t for t in fix), r)
+            else:
+                self.assertTrue(r.startswith('# '), r)
+            self.assertLessEqual(len(r), 64, r)
 
 
 if __name__ == '__main__':

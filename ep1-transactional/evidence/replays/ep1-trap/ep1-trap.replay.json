@@ -1,0 +1,98 @@
+{
+  "schema": "logreplay.annot.v1",
+  "id": "ep1-trap",
+  "run": "run.jsonl",
+  "format": "spring-boot",
+  "title": "app log · trap: this.saveAndCharge() · real run",
+  "show": [
+    "thread",
+    "logger"
+  ],
+  "elidePaths": true,
+  "probes": [
+    "^LAB: "
+  ],
+  "folds": [
+    {
+      "from": "start",
+      "to": "banner-end",
+      "label": "Spring Boot banner"
+    },
+    {
+      "from": {
+        "seq": 12
+      },
+      "to": {
+        "seq": 15
+      },
+      "label": "database pool starts; app started"
+    },
+    {
+      "from": {
+        "seq": 21
+      },
+      "to": {
+        "seq": 22
+      },
+      "label": "the lab's count query"
+    },
+    {
+      "from": {
+        "seq": 24
+      },
+      "to": {
+        "seq": 25
+      },
+      "label": "pool shuts down; app exits"
+    }
+  ],
+  "segments": [
+    {
+      "until": "end",
+      "mode": "step",
+      "dwellMs": 450
+    }
+  ],
+  "events": [
+    {
+      "id": "outside",
+      "at": {
+        "match": "^LAB: calling placeOrder"
+      },
+      "tag": "Our call, from outside the bean",
+      "kind": "live"
+    },
+    {
+      "id": "insert",
+      "at": {
+        "match": "Executing prepared SQL update"
+      },
+      "tag": "No transaction at this insert",
+      "kind": "live"
+    },
+    {
+      "id": "probe",
+      "at": {
+        "match": "^LAB: at the insert, transaction active = false$"
+      },
+      "tag": "Lab check: transaction active? false",
+      "kind": "live"
+    },
+    {
+      "id": "threw",
+      "at": {
+        "match": "^LAB: placeOrder threw PaymentDeclinedException"
+      },
+      "tag": "Error thrown: nothing to undo",
+      "kind": "live"
+    },
+    {
+      "id": "count",
+      "at": {
+        "match": "^LAB: orders after failure = 1$"
+      },
+      "tag": "Row still saved: 1 order",
+      "kind": "live"
+    }
+  ]
+}

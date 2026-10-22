@@ -1,0 +1,7 @@
+# trap run: the lines at the insert
+trap: Executing prepared SQL update
+trap: LAB: at the insert, transaction active = false
+# fixed run: the same insert
+fix:  Creating new transaction with name [lab.fix.OrderWriter …
+fix:  Executing prepared SQL update
+fix:  LAB: at the insert, transaction active = true

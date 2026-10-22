@@ -1,0 +1,126 @@
+{
+  "schema": "logreplay.annot.v1",
+  "id": "ep1-fix",
+  "run": "run.jsonl",
+  "format": "spring-boot",
+  "title": "app log · fix: writer.saveAndCharge() · real run",
+  "show": [
+    "thread",
+    "logger"
+  ],
+  "elidePaths": true,
+  "probes": [
+    "^LAB: "
+  ],
+  "folds": [
+    {
+      "from": "start",
+      "to": "banner-end",
+      "label": "Spring Boot banner"
+    },
+    {
+      "from": {
+        "seq": 10
+      },
+      "to": {
+        "seq": 15
+      },
+      "label": "Spring Boot starts, profile fix"
+    },
+    {
+      "from": {
+        "seq": 18
+      },
+      "to": {
+        "seq": 20
+      },
+      "label": "connection taken for the transaction"
+    },
+    {
+      "from": {
+        "seq": 24
+      },
+      "to": {
+        "seq": 67
+      },
+      "label": "rollback trace and its stack frames"
+    },
+    {
+      "from": {
+        "seq": 69
+      },
+      "to": {
+        "seq": 70
+      },
+      "label": "rolled back; connection released"
+    },
+    {
+      "from": {
+        "seq": 72
+      },
+      "to": {
+        "seq": 73
+      },
+      "label": "the lab's count query"
+    },
+    {
+      "from": {
+        "seq": 75
+      },
+      "to": {
+        "seq": 76
+      },
+      "label": "pool shuts down; app exits"
+    }
+  ],
+  "segments": [
+    {
+      "until": "end",
+      "mode": "step",
+      "dwellMs": 450
+    }
+  ],
+  "events": [
+    {
+      "id": "created",
+      "at": {
+        "match": "Creating new transaction with name \\[lab\\.fix\\.OrderWriter\\.saveAndCharge\\]"
+      },
+      "tag": "Transaction started before insert",
+      "kind": "live",
+      "predictMs": 1500
+    },
+    {
+      "id": "insert",
+      "at": {
+        "match": "Executing prepared SQL update"
+      },
+      "tag": "Insert runs inside the transaction",
+      "kind": "live"
+    },
+    {
+      "id": "probe",
+      "at": {
+        "match": "^LAB: at the insert, transaction active = true$"
+      },
+      "tag": "Lab check: transaction active? true",
+      "kind": "live"
+    },
+    {
+      "id": "rollback",
+      "at": {
+        "match": "Initiating transaction rollback"
+      },
+      "tag": "Error thrown: insert undone",
+      "kind": "live"
+    },
+    {
+      "id": "count",
+      "at": {
+        "match": "^LAB: orders after failure = 0$"
+      },
+      "tag": "No row saved: 0 orders",
+      "kind": "live"
+    }
+  ]
+}

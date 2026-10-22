@@ -49,7 +49,7 @@ build_ep() {  # build_ep <episode dir>: jar in the Maven image (tests run), then
 
 capture() {  # capture <episode dir> <scenario> [app args...]: one container, logcap (docker logs --timestamps)
   local ep=$1 sc=$2; shift 2
-  local out="$ep/evidence/replays/$sc"
+  local out="$LAB_W/$ep/evidence/replays/$sc"   # absolute: logcap runs its node step from the engine repo
   rm -rf "$out"
   bash "$LOGCAP" --out "$out" --scenario "$sc" --timeout 120 -- --memory 768m "$(image_of "$ep")" "$@"
 }

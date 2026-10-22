@@ -1,0 +1,77 @@
+{"seq":0,"stream":"stdout","tRecvMs":0,"text":""}
+{"seq":1,"stream":"stdout","tRecvMs":0.034,"text":"  .   ____          _            __ _ _"}
+{"seq":2,"stream":"stdout","tRecvMs":0.036,"text":" /\\\\ / ___'_ __ _ _(_)_ __  __ _ \\ \\ \\ \\"}
+{"seq":3,"stream":"stdout","tRecvMs":0.037,"text":"( ( )\\___ | '_ | '_| | '_ \\/ _` | \\ \\ \\ \\"}
+{"seq":4,"stream":"stdout","tRecvMs":0.039,"text":" \\\\/  ___)| |_)| | | | | || (_| |  ) ) ) )"}
+{"seq":5,"stream":"stdout","tRecvMs":0.04,"text":"  '  |____| .__|_| |_|_| |_\\__, | / / / /"}
+{"seq":6,"stream":"stdout","tRecvMs":0.041,"text":" =========|_|==============|___/=/_/_/_/"}
+{"seq":7,"stream":"stdout","tRecvMs":0.042,"text":""}
+{"seq":8,"stream":"stdout","tRecvMs":0.108,"text":" :: Spring Boot ::                (v4.1.2)"}
+{"seq":9,"stream":"stdout","tRecvMs":0.117,"text":""}
+{"seq":10,"stream":"stdout","tRecvMs":45.105,"text":"2026-10-22T13:06:42.101Z  INFO 1 --- [ep1] [           main] lab.TrapApp                              : Starting TrapApp v1.0 using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /)"}
+{"seq":11,"stream":"stdout","tRecvMs":46.042,"text":"2026-10-22T13:06:42.104Z  INFO 1 --- [ep1] [           main] lab.TrapApp                              : The following 1 profile is active: \"fix\""}
+{"seq":12,"stream":"stdout","tRecvMs":485.259,"text":"2026-10-22T13:06:42.543Z  INFO 1 --- [ep1] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting..."}
+{"seq":13,"stream":"stdout","tRecvMs":592.129,"text":"2026-10-22T13:06:42.648Z  INFO 1 --- [ep1] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:shop user=SA"}
+{"seq":14,"stream":"stdout","tRecvMs":592.867,"text":"2026-10-22T13:06:42.651Z  INFO 1 --- [ep1] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed."}
+{"seq":15,"stream":"stdout","tRecvMs":707.13,"text":"2026-10-22T13:06:42.765Z  INFO 1 --- [ep1] [           main] lab.TrapApp                              : Started TrapApp in 1.044 seconds (process running for 1.341)"}
+{"seq":16,"stream":"stdout","tRecvMs":708.572,"text":"LAB: calling placeOrder(\"book\") from outside the bean"}
+{"seq":17,"stream":"stdout","tRecvMs":710.975,"text":"2026-10-22T13:06:42.769Z DEBUG 1 --- [ep1] [           main] o.s.jdbc.support.JdbcTransactionManager  : Creating new transaction with name [lab.fix.OrderWriter.saveAndCharge]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT"}
+{"seq":18,"stream":"stdout","tRecvMs":712.67,"text":"2026-10-22T13:06:42.771Z DEBUG 1 --- [ep1] [           main] o.s.jdbc.support.JdbcTransactionManager  : Acquired Connection [HikariProxyConnection@1927452108 wrapping conn0: url=jdbc:h2:mem:shop user=SA] for JDBC transaction"}
+{"seq":19,"stream":"stdout","tRecvMs":713.365,"text":"2026-10-22T13:06:42.771Z DEBUG 1 --- [ep1] [           main] o.s.jdbc.support.JdbcTransactionManager  : Switching JDBC Connection [HikariProxyConnection@1927452108 wrapping conn0: url=jdbc:h2:mem:shop user=SA] to manual commit"}
+{"seq":20,"stream":"stdout","tRecvMs":713.673,"text":"2026-10-22T13:06:42.772Z TRACE 1 --- [ep1] [           main] o.s.t.i.TransactionInterceptor           : Getting transaction for [lab.fix.OrderWriter.saveAndCharge]"}
+{"seq":21,"stream":"stdout","tRecvMs":715.456,"text":"2026-10-22T13:06:42.773Z DEBUG 1 --- [ep1] [           main] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL update"}
+{"seq":22,"stream":"stdout","tRecvMs":715.548,"text":"2026-10-22T13:06:42.773Z DEBUG 1 --- [ep1] [           main] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [insert into orders(item) values (?)]"}
+{"seq":23,"stream":"stdout","tRecvMs":720.752,"text":"LAB: at the insert, transaction active = true"}
+{"seq":24,"stream":"stdout","tRecvMs":721.054,"text":"2026-10-22T13:06:42.779Z TRACE 1 --- [ep1] [           main] o.s.t.i.TransactionInterceptor           : Completing transaction for [lab.fix.OrderWriter.saveAndCharge] after exception: lab.PaymentDeclinedException: card declined for book"}
+{"seq":25,"stream":"stdout","tRecvMs":723.731,"text":"2026-10-22T13:06:42.779Z TRACE 1 --- [ep1] [           main] o.s.t.i.TransactionInterceptor           : MethodRollbackEvent: lab.fix.OrderWriter.saveAndCharge [lab.PaymentDeclinedException: card declined for book]"}
+{"seq":26,"stream":"stdout","tRecvMs":723.742,"text":""}
+{"seq":27,"stream":"stdout","tRecvMs":723.744,"text":"lab.PaymentDeclinedException: card declined for book"}
+{"seq":28,"stream":"stdout","tRecvMs":723.745,"text":"\tat lab.fix.OrderWriter.saveAndCharge(OrderWriter.java:24) ~[!/:1.0]"}
+{"seq":29,"stream":"stdout","tRecvMs":723.746,"text":"\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]"}
+{"seq":30,"stream":"stdout","tRecvMs":723.747,"text":"\tat java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]"}
+{"seq":31,"stream":"stdout","tRecvMs":723.748,"text":"\tat org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-7.0.10.jar!/:7.0.10]"}
+{"seq":32,"stream":"stdout","tRecvMs":723.749,"text":"\tat org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190) ~[spring-aop-7.0.10.jar!/:7.0.10]"}
+{"seq":33,"stream":"stdout","tRecvMs":723.749,"text":"\tat org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158) ~[spring-aop-7.0.10.jar!/:7.0.10]"}
+{"seq":34,"stream":"stdout","tRecvMs":723.75,"text":"\tat org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133) ~[spring-tx-7.0.10.jar!/:7.0.10]"}
+{"seq":35,"stream":"stdout","tRecvMs":723.751,"text":"\tat org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371) ~[spring-tx-7.0.10.jar!/:7.0.10]"}
+{"seq":36,"stream":"stdout","tRecvMs":723.752,"text":"\tat org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130) ~[spring-tx-7.0.10.jar!/:7.0.10]"}
+{"seq":37,"stream":"stdout","tRecvMs":723.753,"text":"\tat org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.10.jar!/:7.0.10]"}
+{"seq":38,"stream":"stdout","tRecvMs":723.754,"text":"\tat org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:714) ~[spring-aop-7.0.10.jar!/:7.0.10]"}
+{"seq":39,"stream":"stdout","tRecvMs":723.754,"text":"\tat lab.fix.OrderWriter$$SpringCGLIB$$0.saveAndCharge(<generated>) ~[!/:1.0]"}
+{"seq":40,"stream":"stdout","tRecvMs":723.755,"text":"\tat lab.fix.Checkout.placeOrder(Checkout.java:22) ~[!/:1.0]"}
+{"seq":41,"stream":"stdout","tRecvMs":723.756,"text":"\tat lab.LabRunner.run(LabRunner.java:25) ~[!/:1.0]"}
+{"seq":42,"stream":"stdout","tRecvMs":723.757,"text":"\tat org.springframework.boot.SpringApplication.lambda$callRunner$1(SpringApplication.java:780) ~[spring-boot-4.1.2.jar!/:4.1.2]"}
+{"seq":43,"stream":"stdout","tRecvMs":723.758,"text":"\tat org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:82) ~[spring-core-7.0.10.jar!/:7.0.10]"}
+{"seq":44,"stream":"stdout","tRecvMs":723.759,"text":"\tat org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60) ~[spring-core-7.0.10.jar!/:7.0.10]"}
+{"seq":45,"stream":"stdout","tRecvMs":723.766,"text":"\tat org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:86) ~[spring-core-7.0.10.jar!/:7.0.10]"}
+{"seq":46,"stream":"stdout","tRecvMs":723.766,"text":"\tat org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:788) ~[spring-boot-4.1.2.jar!/:4.1.2]"}
+{"seq":47,"stream":"stdout","tRecvMs":723.767,"text":"\tat org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:779) ~[spring-boot-4.1.2.jar!/:4.1.2]"}
+{"seq":48,"stream":"stdout","tRecvMs":723.768,"text":"\tat org.springframework.boot.SpringApplication.lambda$callRunners$0(SpringApplication.java:764) ~[spring-boot-4.1.2.jar!/:4.1.2]"}
+{"seq":49,"stream":"stdout","tRecvMs":723.769,"text":"\tat java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184) ~[na:na]"}
+{"seq":50,"stream":"stdout","tRecvMs":723.77,"text":"\tat java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357) ~[na:na]"}
+{"seq":51,"stream":"stdout","tRecvMs":723.771,"text":"\tat java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510) ~[na:na]"}
+{"seq":52,"stream":"stdout","tRecvMs":723.771,"text":"\tat java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]"}
+{"seq":53,"stream":"stdout","tRecvMs":723.772,"text":"\tat java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151) ~[na:na]"}
+{"seq":54,"stream":"stdout","tRecvMs":723.773,"text":"\tat java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174) ~[na:na]"}
+{"seq":55,"stream":"stdout","tRecvMs":723.774,"text":"\tat java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]"}
+{"seq":56,"stream":"stdout","tRecvMs":723.775,"text":"\tat java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]"}
+{"seq":57,"stream":"stdout","tRecvMs":723.775,"text":"\tat org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:764) ~[spring-boot-4.1.2.jar!/:4.1.2]"}
+{"seq":58,"stream":"stdout","tRecvMs":723.776,"text":"\tat org.springframework.boot.SpringApplication.run(SpringApplication.java:316) ~[spring-boot-4.1.2.jar!/:4.1.2]"}
+{"seq":59,"stream":"stdout","tRecvMs":723.777,"text":"\tat org.springframework.boot.SpringApplication.run(SpringApplication.java:1353) ~[spring-boot-4.1.2.jar!/:4.1.2]"}
+{"seq":60,"stream":"stdout","tRecvMs":723.778,"text":"\tat org.springframework.boot.SpringApplication.run(SpringApplication.java:1342) ~[spring-boot-4.1.2.jar!/:4.1.2]"}
+{"seq":61,"stream":"stdout","tRecvMs":723.779,"text":"\tat lab.TrapApp.main(TrapApp.java:11) ~[!/:1.0]"}
+{"seq":62,"stream":"stdout","tRecvMs":723.78,"text":"\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]"}
+{"seq":63,"stream":"stdout","tRecvMs":723.781,"text":"\tat java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]"}
+{"seq":64,"stream":"stdout","tRecvMs":723.781,"text":"\tat org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:94) ~[app.jar:1.0]"}
+{"seq":65,"stream":"stdout","tRecvMs":723.782,"text":"\tat org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:52) ~[app.jar:1.0]"}
+{"seq":66,"stream":"stdout","tRecvMs":723.783,"text":"\tat org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:28) ~[app.jar:1.0]"}
+{"seq":67,"stream":"stdout","tRecvMs":723.784,"text":""}
+{"seq":68,"stream":"stdout","tRecvMs":724.083,"text":"2026-10-22T13:06:42.782Z DEBUG 1 --- [ep1] [           main] o.s.jdbc.support.JdbcTransactionManager  : Initiating transaction rollback"}
+{"seq":69,"stream":"stdout","tRecvMs":724.437,"text":"2026-10-22T13:06:42.782Z DEBUG 1 --- [ep1] [           main] o.s.jdbc.support.JdbcTransactionManager  : Rolling back JDBC transaction on Connection [HikariProxyConnection@1927452108 wrapping conn0: url=jdbc:h2:mem:shop user=SA]"}
+{"seq":70,"stream":"stdout","tRecvMs":724.966,"text":"2026-10-22T13:06:42.783Z DEBUG 1 --- [ep1] [           main] o.s.jdbc.support.JdbcTransactionManager  : Releasing JDBC Connection [HikariProxyConnection@1927452108 wrapping conn0: url=jdbc:h2:mem:shop user=SA] after transaction"}
+{"seq":71,"stream":"stdout","tRecvMs":725.03,"text":"LAB: placeOrder threw PaymentDeclinedException: card declined for book"}
+{"seq":72,"stream":"stdout","tRecvMs":726.612,"text":"2026-10-22T13:06:42.784Z DEBUG 1 --- [ep1] [           main] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query"}
+{"seq":73,"stream":"stdout","tRecvMs":726.825,"text":"2026-10-22T13:06:42.785Z DEBUG 1 --- [ep1] [           main] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [select count(*) from orders]"}
+{"seq":74,"stream":"stdout","tRecvMs":735.124,"text":"LAB: orders after failure = 0"}
+{"seq":75,"stream":"stdout","tRecvMs":738.044,"text":"2026-10-22T13:06:42.796Z  INFO 1 --- [ep1] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated..."}
+{"seq":76,"stream":"stdout","tRecvMs":755.757,"text":"2026-10-22T13:06:42.814Z  INFO 1 --- [ep1] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed."}

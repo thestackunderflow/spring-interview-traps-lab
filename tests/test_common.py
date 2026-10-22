@@ -43,11 +43,15 @@ class TagsSitOnRealLines(unittest.TestCase):
         anns = self.annotations()
         self.assertTrue(anns, 'no replay annotations yet')
         for ann_path in anns:
-            ann = json.load(open(ann_path, encoding='utf-8'))
+            with open(ann_path, encoding='utf-8') as f:
+                ann = json.load(f)
             run = os.path.join(os.path.dirname(ann_path), ann['run'])
             lines = run_lines(run)
             raw = os.path.join(os.path.dirname(ann_path), 'raw', 'stdout.txt')
-            raw_text = open(raw, encoding='utf-8').read() if os.path.exists(raw) else None
+            raw_text = None
+            if os.path.exists(raw):
+                with open(raw, encoding='utf-8') as f:
+                    raw_text = f.read()
             for ev in ann['events']:
                 for key in ('at', 'through'):
                     ref = ev.get(key)
@@ -56,7 +60,7 @@ class TagsSitOnRealLines(unittest.TestCase):
                     hits = matches(lines, ref)
                     if 'nth' in ref:
                         self.assertGreater(len(hits), ref['nth'], (ann_path, ev['id'], key))
-                        hit = hits[ref['nth']]
+                        hit = hits[ref['nth'] - 1]   # nth is 1-based (mcp-canvas compileReplay)
                     else:
                         self.assertEqual(len(hits), 1, (ann_path, ev['id'], key, hits))
                         hit = hits[0]

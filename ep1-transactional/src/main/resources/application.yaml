@@ -1,0 +1,13 @@
+# Episode 1. Real framework logging only (PLAN rev 2, 4.3): Boot 4.1.2 auto-configures a JdbcTransactionManager
+# (org.springframework.jdbc.support), so that is the logger that prints "Creating new transaction" (acc M1).
+spring:
+  application:
+    name: ep1
+  datasource:
+    url: jdbc:h2:mem:shop;DB_CLOSE_DELAY=-1
+    username: sa
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: DEBUG
+    org.springframework.transaction.interceptor: TRACE
+    org.springframework.jdbc.core: DEBUG
