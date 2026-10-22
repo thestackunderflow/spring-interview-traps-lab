@@ -75,7 +75,7 @@
       "at": {
         "match": "Creating shared instance of singleton bean 'orderService'"
       },
-      "tag": "orderService() calls auditLog()",
+      "tag": "Spring creates orderService",
       "kind": "live"
     },
     {
@@ -83,7 +83,7 @@
       "at": {
         "match": "^LAB: AuditLog constructor ran, #2$"
       },
-      "tag": "Constructor run #2: no Spring line",
+      "tag": "Run #2: Spring never logged it",
       "kind": "live",
       "predictMs": 2500
     },
@@ -92,7 +92,7 @@
       "at": {
         "match": "^LAB: same object\\? false$"
       },
-      "tag": "Two different AuditLog objects",
+      "tag": "Same object? false: two AuditLogs",
       "kind": "live"
     }
   ]

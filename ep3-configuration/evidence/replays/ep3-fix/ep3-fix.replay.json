@@ -83,17 +83,17 @@
       "at": {
         "match": "Creating shared instance of singleton bean 'orderService'"
       },
-      "tag": "orderService() calls auditLog()",
-      "kind": "live",
-      "predictMs": 2500
+      "tag": "Spring creates orderService",
+      "kind": "live"
     },
     {
       "id": "same",
       "at": {
         "match": "^LAB: same object\\? true$"
       },
-      "tag": "One AuditLog object",
-      "kind": "live"
+      "tag": "Same object? true: one AuditLog",
+      "kind": "live",
+      "predictMs": 3000
     }
   ]
 }
