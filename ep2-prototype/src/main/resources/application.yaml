@@ -1,0 +1,5 @@
+# Episode 2. Real framework logging only (PLAN rev 2, 4.3): the bean factory's TRACE line "Creating instance of bean"
+# is switched on by LabRunner after startup, through Spring Boot's LoggingSystem (acc M4).
+spring:
+  application:
+    name: ep2

@@ -74,8 +74,11 @@ class Fix(unittest.TestCase):
 
 
 class Panels(unittest.TestCase):
-    def test_before_after_rows_are_captured_lines(self):
-        path = os.path.join(LAB, 'ep2-prototype', 'video', 'before-after-panel.txt')
+    def test_panel_rows_are_captured_lines(self):
+        for name in ('before-after-panel.txt', 'outcome-panel.txt'):
+            self.check(os.path.join(LAB, 'ep2-prototype', 'video', name))
+
+    def check(self, path):
         with open(path, encoding='utf-8') as f:
             rows = [r.rstrip('\n') for r in f]
         trap, fix = lines('ep2-trap'), lines('ep2-fix')

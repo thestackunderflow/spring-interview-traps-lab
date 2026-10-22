@@ -34,13 +34,56 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.5.6.jar:3.5.6]
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.5.6.jar:3.5.6]
 
-2026-10-22T13:09:24.498Z DEBUG 99 --- [ep1] [           main] o.s.jdbc.support.JdbcTransactionManager  : Initiating transaction rollback
-2026-10-22T13:09:24.498Z DEBUG 99 --- [ep1] [           main] o.s.jdbc.support.JdbcTransactionManager  : Rolling back JDBC transaction on Connection [HikariProxyConnection@611181438 wrapping conn10: url=jdbc:h2:mem:shop user=SA]
-2026-10-22T13:09:24.499Z DEBUG 99 --- [ep1] [           main] o.s.jdbc.support.JdbcTransactionManager  : Releasing JDBC Connection [HikariProxyConnection@611181438 wrapping conn10: url=jdbc:h2:mem:shop user=SA] after transaction
-2026-10-22T13:09:24.499Z DEBUG 99 --- [ep1] [           main] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
-2026-10-22T13:09:24.499Z DEBUG 99 --- [ep1] [           main] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [select count(*) from orders]
+2026-10-22T13:18:04.752Z DEBUG 99 --- [ep1] [           main] o.s.jdbc.support.JdbcTransactionManager  : Initiating transaction rollback
+2026-10-22T13:18:04.753Z DEBUG 99 --- [ep1] [           main] o.s.jdbc.support.JdbcTransactionManager  : Rolling back JDBC transaction on Connection [HikariProxyConnection@788761916 wrapping conn10: url=jdbc:h2:mem:shop user=SA]
+2026-10-22T13:18:04.754Z DEBUG 99 --- [ep1] [           main] o.s.jdbc.support.JdbcTransactionManager  : Releasing JDBC Connection [HikariProxyConnection@788761916 wrapping conn10: url=jdbc:h2:mem:shop user=SA] after transaction
+2026-10-22T13:18:04.754Z DEBUG 99 --- [ep1] [           main] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
+2026-10-22T13:18:04.754Z DEBUG 99 --- [ep1] [           main] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [select count(*) from orders]
 JUnit ep1-transactional: tests="3" errors="0" skipped="0" failures="0"
 JUnit ep1-transactional: tests="3" errors="0" skipped="0" failures="0"
+== JUnit ep2-prototype
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.2)
+
+2026-10-22T13:18:10.107Z  INFO 92 --- [ep2] [           main] lab.TrapAndFixTest$Trap                  : Starting TrapAndFixTest.Trap using Java 21.0.12.1 with PID 92 (started by root in /lab/ep2-prototype)
+2026-10-22T13:18:10.108Z  INFO 92 --- [ep2] [           main] lab.TrapAndFixTest$Trap                  : The following 1 profile is active: "trap"
+LAB: Ticket #1 constructed
+2026-10-22T13:18:10.796Z  INFO 92 --- [ep2] [           main] lab.TrapAndFixTest$Trap                  : Started TrapAndFixTest.Trap in 1.266 seconds (process running for 2.816)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.18.15/byte-buddy-agent-1.18.15.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+2026-10-22T13:18:11.837Z  INFO 92 --- [ep2] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [lab.TrapAndFixTest$Fix]: Fix does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-22T13:18:11.840Z  INFO 92 --- [ep2] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration lab.TrapApp for test class lab.TrapAndFixTest$Fix
+2026-10-22T13:18:11.844Z  INFO 92 --- [ep2] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [lab.TrapAndFixTest$Fix]: Fix does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-22T13:18:11.846Z  INFO 92 --- [ep2] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [lab.TrapAndFixTest]: TrapAndFixTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-22T13:18:11.848Z  INFO 92 --- [ep2] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration lab.TrapApp for test class lab.TrapAndFixTest$Fix
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.2)
+
+2026-10-22T13:18:11.916Z  INFO 92 --- [ep2] [           main] lab.TrapAndFixTest$Fix                   : Starting TrapAndFixTest.Fix using Java 21.0.12.1 with PID 92 (started by root in /lab/ep2-prototype)
+2026-10-22T13:18:11.916Z  INFO 92 --- [ep2] [           main] lab.TrapAndFixTest$Fix                   : The following 1 profile is active: "fix"
+2026-10-22T13:18:12.057Z  INFO 92 --- [ep2] [           main] lab.TrapAndFixTest$Fix                   : Started TrapAndFixTest.Fix in 0.198 seconds (process running for 4.077)
+LAB: Ticket #2 constructed
+LAB: Ticket #3 constructed
+LAB: Ticket #4 constructed
+JUnit ep2-prototype: tests="2" errors="0" skipped="0" failures="0"
+JUnit ep2-prototype: tests="2" errors="0" skipped="0" failures="0"
 == Python evidence tests
 test_no_host_paths_names_or_tokens_in_any_file (test_common.NothingPrivate.test_no_host_paths_names_or_tokens_in_any_file) ... ok
 test_the_extra_words_are_really_checked (test_common.NothingPrivate.test_the_extra_words_are_really_checked) ... ok
@@ -53,8 +96,16 @@ test_boot_4_1_2_and_exit_0 (test_ep1.Trap.test_boot_4_1_2_and_exit_0) ... ok
 test_no_transaction_was_created_or_rolled_back (test_ep1.Trap.test_no_transaction_was_created_or_rolled_back) ... ok
 test_the_insert_ran_without_a_transaction (test_ep1.Trap.test_the_insert_ran_without_a_transaction) ... ok
 test_the_row_stayed (test_ep1.Trap.test_the_row_stayed) ... ok
+test_boot_4_1_2_exit_0 (test_ep2.Common.test_boot_4_1_2_exit_0) ... ok
+test_no_ticket_at_startup_three_during_the_calls (test_ep2.Fix.test_no_ticket_at_startup_three_during_the_calls) ... ok
+test_the_container_logs_each_creation (test_ep2.Fix.test_the_container_logs_each_creation) ... ok
+test_three_calls_three_tickets (test_ep2.Fix.test_three_calls_three_tickets) ... ok
+test_panel_rows_are_captured_lines (test_ep2.Panels.test_panel_rows_are_captured_lines) ... ok
+test_one_ticket_built_at_startup_before_the_calls (test_ep2.Trap.test_one_ticket_built_at_startup_before_the_calls) ... ok
+test_the_container_creates_no_ticket_during_the_calls (test_ep2.Trap.test_the_container_creates_no_ticket_during_the_calls) ... ok
+test_three_calls_one_ticket_same_identity (test_ep2.Trap.test_three_calls_one_ticket_same_identity) ... ok
 
 ----------------------------------------------------------------------
-Ran 11 tests in 0.411s
+Ran 19 tests in 0.728s
 
 OK

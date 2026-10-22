@@ -1,0 +1,81 @@
+{
+  "schema": "logreplay.annot.v1",
+  "id": "traps2-trap",
+  "run": "run.jsonl",
+  "format": "spring-boot",
+  "title": "app log · trap: Ticket injected once · real run",
+  "show": [
+    "thread",
+    "logger"
+  ],
+  "elidePaths": true,
+  "probes": [
+    "^LAB: "
+  ],
+  "folds": [
+    {
+      "from": "start",
+      "to": "banner-end",
+      "label": "Spring Boot banner"
+    },
+    {
+      "from": {
+        "seq": 18
+      },
+      "to": {
+        "seq": 25
+      },
+      "label": "shutdown: bean factory TRACE lines"
+    }
+  ],
+  "segments": [
+    {
+      "until": "end",
+      "mode": "step",
+      "dwellMs": 450
+    }
+  ],
+  "events": [
+    {
+      "id": "built",
+      "at": {
+        "match": "^LAB: Ticket #1 constructed$"
+      },
+      "tag": "One ticket, made at startup",
+      "kind": "live"
+    },
+    {
+      "id": "traceon",
+      "at": {
+        "match": "^LAB: bean-factory TRACE logging on"
+      },
+      "tag": "From here: log new beans",
+      "kind": "live"
+    },
+    {
+      "id": "call1",
+      "at": {
+        "match": "^LAB: call 1 served"
+      },
+      "tag": "Call 1: Ticket #1",
+      "kind": "live"
+    },
+    {
+      "id": "call2",
+      "at": {
+        "match": "^LAB: call 2 served"
+      },
+      "tag": "Call 2: still Ticket #1",
+      "kind": "live",
+      "predictMs": 1500
+    },
+    {
+      "id": "call3",
+      "at": {
+        "match": "^LAB: call 3 served"
+      },
+      "tag": "Same object, same identity code",
+      "kind": "live"
+    }
+  ]
+}

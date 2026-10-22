@@ -1,0 +1,91 @@
+{
+  "schema": "logreplay.annot.v1",
+  "id": "traps2-fix",
+  "run": "run.jsonl",
+  "format": "spring-boot",
+  "title": "app log · fix: ObjectProvider.getObject() · real run",
+  "show": [
+    "thread",
+    "logger"
+  ],
+  "elidePaths": true,
+  "probes": [
+    "^LAB: "
+  ],
+  "folds": [
+    {
+      "from": "start",
+      "to": "banner-end",
+      "label": "Spring Boot banner"
+    },
+    {
+      "from": {
+        "seq": 10
+      },
+      "to": {
+        "seq": 12
+      },
+      "label": "Spring Boot starts, profile fix"
+    },
+    {
+      "from": {
+        "seq": 26
+      },
+      "to": {
+        "seq": 33
+      },
+      "label": "shutdown: bean factory TRACE lines"
+    }
+  ],
+  "segments": [
+    {
+      "until": "end",
+      "mode": "step",
+      "dwellMs": 450
+    }
+  ],
+  "events": [
+    {
+      "id": "traceon",
+      "at": {
+        "match": "^LAB: bean-factory TRACE logging on"
+      },
+      "tag": "From here: log new beans",
+      "kind": "live"
+    },
+    {
+      "id": "create1",
+      "at": {
+        "match": "Creating instance of bean 'ticket'",
+        "nth": 1
+      },
+      "tag": "Container makes a new ticket",
+      "kind": "live",
+      "predictMs": 1500
+    },
+    {
+      "id": "call1",
+      "at": {
+        "match": "^LAB: call 1 served"
+      },
+      "tag": "Call 1: Ticket #1",
+      "kind": "live"
+    },
+    {
+      "id": "call2",
+      "at": {
+        "match": "^LAB: call 2 served"
+      },
+      "tag": "Call 2: new Ticket #2",
+      "kind": "live"
+    },
+    {
+      "id": "call3",
+      "at": {
+        "match": "^LAB: call 3 served"
+      },
+      "tag": "Call 3: Ticket #3, new identity",
+      "kind": "live"
+    }
+  ]
+}
