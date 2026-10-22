@@ -34,11 +34,11 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.5.6.jar:3.5.6]
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.5.6.jar:3.5.6]
 
-2026-10-22T13:18:04.752Z DEBUG 99 --- [ep1] [           main] o.s.jdbc.support.JdbcTransactionManager  : Initiating transaction rollback
-2026-10-22T13:18:04.753Z DEBUG 99 --- [ep1] [           main] o.s.jdbc.support.JdbcTransactionManager  : Rolling back JDBC transaction on Connection [HikariProxyConnection@788761916 wrapping conn10: url=jdbc:h2:mem:shop user=SA]
-2026-10-22T13:18:04.754Z DEBUG 99 --- [ep1] [           main] o.s.jdbc.support.JdbcTransactionManager  : Releasing JDBC Connection [HikariProxyConnection@788761916 wrapping conn10: url=jdbc:h2:mem:shop user=SA] after transaction
-2026-10-22T13:18:04.754Z DEBUG 99 --- [ep1] [           main] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
-2026-10-22T13:18:04.754Z DEBUG 99 --- [ep1] [           main] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [select count(*) from orders]
+2026-10-22T18:06:48.045Z DEBUG 101 --- [ep1] [           main] o.s.jdbc.support.JdbcTransactionManager  : Initiating transaction rollback
+2026-10-22T18:06:48.045Z DEBUG 101 --- [ep1] [           main] o.s.jdbc.support.JdbcTransactionManager  : Rolling back JDBC transaction on Connection [HikariProxyConnection@2018964506 wrapping conn10: url=jdbc:h2:mem:shop user=SA]
+2026-10-22T18:06:48.046Z DEBUG 101 --- [ep1] [           main] o.s.jdbc.support.JdbcTransactionManager  : Releasing JDBC Connection [HikariProxyConnection@2018964506 wrapping conn10: url=jdbc:h2:mem:shop user=SA] after transaction
+2026-10-22T18:06:48.046Z DEBUG 101 --- [ep1] [           main] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
+2026-10-22T18:06:48.046Z DEBUG 101 --- [ep1] [           main] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [select count(*) from orders]
 JUnit ep1-transactional: tests="3" errors="0" skipped="0" failures="0"
 JUnit ep1-transactional: tests="3" errors="0" skipped="0" failures="0"
 == JUnit ep2-prototype
@@ -51,21 +51,21 @@ JUnit ep1-transactional: tests="3" errors="0" skipped="0" failures="0"
 
  :: Spring Boot ::                (v4.1.2)
 
-2026-10-22T13:18:10.107Z  INFO 92 --- [ep2] [           main] lab.TrapAndFixTest$Trap                  : Starting TrapAndFixTest.Trap using Java 21.0.12.1 with PID 92 (started by root in /lab/ep2-prototype)
-2026-10-22T13:18:10.108Z  INFO 92 --- [ep2] [           main] lab.TrapAndFixTest$Trap                  : The following 1 profile is active: "trap"
+2026-10-22T18:06:53.486Z  INFO 91 --- [ep2] [           main] lab.TrapAndFixTest$Trap                  : Starting TrapAndFixTest.Trap using Java 21.0.12.1 with PID 91 (started by root in /lab/ep2-prototype)
+2026-10-22T18:06:53.488Z  INFO 91 --- [ep2] [           main] lab.TrapAndFixTest$Trap                  : The following 1 profile is active: "trap"
 LAB: Ticket #1 constructed
-2026-10-22T13:18:10.796Z  INFO 92 --- [ep2] [           main] lab.TrapAndFixTest$Trap                  : Started TrapAndFixTest.Trap in 1.266 seconds (process running for 2.816)
+2026-10-22T18:06:54.231Z  INFO 91 --- [ep2] [           main] lab.TrapAndFixTest$Trap                  : Started TrapAndFixTest.Trap in 1.406 seconds (process running for 3.43)
 Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
 OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
 WARNING: A Java agent has been loaded dynamically (/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.18.15/byte-buddy-agent-1.18.15.jar)
 WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
 WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
 WARNING: Dynamic loading of agents will be disallowed by default in a future release
-2026-10-22T13:18:11.837Z  INFO 92 --- [ep2] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [lab.TrapAndFixTest$Fix]: Fix does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-10-22T13:18:11.840Z  INFO 92 --- [ep2] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration lab.TrapApp for test class lab.TrapAndFixTest$Fix
-2026-10-22T13:18:11.844Z  INFO 92 --- [ep2] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [lab.TrapAndFixTest$Fix]: Fix does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-10-22T13:18:11.846Z  INFO 92 --- [ep2] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [lab.TrapAndFixTest]: TrapAndFixTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-10-22T13:18:11.848Z  INFO 92 --- [ep2] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration lab.TrapApp for test class lab.TrapAndFixTest$Fix
+2026-10-22T18:06:55.401Z  INFO 91 --- [ep2] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [lab.TrapAndFixTest$Fix]: Fix does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-22T18:06:55.404Z  INFO 91 --- [ep2] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration lab.TrapApp for test class lab.TrapAndFixTest$Fix
+2026-10-22T18:06:55.409Z  INFO 91 --- [ep2] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [lab.TrapAndFixTest$Fix]: Fix does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-22T18:06:55.412Z  INFO 91 --- [ep2] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [lab.TrapAndFixTest]: TrapAndFixTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-22T18:06:55.414Z  INFO 91 --- [ep2] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration lab.TrapApp for test class lab.TrapAndFixTest$Fix
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -76,14 +76,57 @@ WARNING: Dynamic loading of agents will be disallowed by default in a future rel
 
  :: Spring Boot ::                (v4.1.2)
 
-2026-10-22T13:18:11.916Z  INFO 92 --- [ep2] [           main] lab.TrapAndFixTest$Fix                   : Starting TrapAndFixTest.Fix using Java 21.0.12.1 with PID 92 (started by root in /lab/ep2-prototype)
-2026-10-22T13:18:11.916Z  INFO 92 --- [ep2] [           main] lab.TrapAndFixTest$Fix                   : The following 1 profile is active: "fix"
-2026-10-22T13:18:12.057Z  INFO 92 --- [ep2] [           main] lab.TrapAndFixTest$Fix                   : Started TrapAndFixTest.Fix in 0.198 seconds (process running for 4.077)
+2026-10-22T18:06:55.482Z  INFO 91 --- [ep2] [           main] lab.TrapAndFixTest$Fix                   : Starting TrapAndFixTest.Fix using Java 21.0.12.1 with PID 91 (started by root in /lab/ep2-prototype)
+2026-10-22T18:06:55.482Z  INFO 91 --- [ep2] [           main] lab.TrapAndFixTest$Fix                   : The following 1 profile is active: "fix"
+2026-10-22T18:06:55.647Z  INFO 91 --- [ep2] [           main] lab.TrapAndFixTest$Fix                   : Started TrapAndFixTest.Fix in 0.223 seconds (process running for 4.846)
 LAB: Ticket #2 constructed
 LAB: Ticket #3 constructed
 LAB: Ticket #4 constructed
 JUnit ep2-prototype: tests="2" errors="0" skipped="0" failures="0"
 JUnit ep2-prototype: tests="2" errors="0" skipped="0" failures="0"
+== JUnit ep3-configuration
+2026-10-22T18:07:03.146Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.AutoConfigurationPackages'
+2026-10-22T18:07:03.146Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration'
+2026-10-22T18:07:03.147Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.aop.AopAutoConfiguration$ClassProxyingConfiguration'
+2026-10-22T18:07:03.147Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.aop.AopAutoConfiguration'
+2026-10-22T18:07:03.147Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.availability.ApplicationAvailabilityAutoConfiguration'
+2026-10-22T18:07:03.147Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'applicationAvailability'
+2026-10-22T18:07:03.148Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.context.ConfigurationPropertiesAutoConfiguration'
+2026-10-22T18:07:03.148Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.context.properties.EnableConfigurationPropertiesRegistrar.methodValidationExcludeFilter'
+2026-10-22T18:07:03.148Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.context.LifecycleAutoConfiguration'
+2026-10-22T18:07:03.148Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'lifecycleProcessor'
+2026-10-22T18:07:03.149Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'spring.lifecycle-org.springframework.boot.autoconfigure.context.LifecycleProperties'
+2026-10-22T18:07:03.149Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'lifecycleProcessor' via factory method to bean named 'spring.lifecycle-org.springframework.boot.autoconfigure.context.LifecycleProperties'
+2026-10-22T18:07:03.150Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.info.ProjectInfoAutoConfiguration'
+2026-10-22T18:07:03.151Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'spring.info-org.springframework.boot.autoconfigure.info.ProjectInfoProperties'
+2026-10-22T18:07:03.151Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'org.springframework.boot.autoconfigure.info.ProjectInfoAutoConfiguration' via constructor to bean named 'spring.info-org.springframework.boot.autoconfigure.info.ProjectInfoProperties'
+2026-10-22T18:07:03.151Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.ssl.SslAutoConfiguration'
+2026-10-22T18:07:03.152Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'spring.ssl-org.springframework.boot.autoconfigure.ssl.SslProperties'
+2026-10-22T18:07:03.152Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'org.springframework.boot.autoconfigure.ssl.SslAutoConfiguration' via constructor to bean named 'org.springframework.context.annotation.AnnotationConfigApplicationContext@320be73'
+2026-10-22T18:07:03.152Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'org.springframework.boot.autoconfigure.ssl.SslAutoConfiguration' via constructor to bean named 'spring.ssl-org.springframework.boot.autoconfigure.ssl.SslProperties'
+2026-10-22T18:07:03.154Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'fileWatcher'
+2026-10-22T18:07:03.155Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'sslPropertiesSslBundleRegistrar'
+2026-10-22T18:07:03.155Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'sslPropertiesSslBundleRegistrar' via factory method to bean named 'fileWatcher'
+2026-10-22T18:07:03.155Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'sslBundleRegistry'
+2026-10-22T18:07:03.156Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.task.TaskExecutorConfigurations$SimpleAsyncTaskExecutorBuilderConfiguration'
+2026-10-22T18:07:03.156Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'org.springframework.boot.autoconfigure.task.TaskExecutorConfigurations$SimpleAsyncTaskExecutorBuilderConfiguration' via constructor to bean named 'spring.task.execution-org.springframework.boot.autoconfigure.task.TaskExecutionProperties'
+2026-10-22T18:07:03.156Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'simpleAsyncTaskExecutorBuilder'
+2026-10-22T18:07:03.157Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.task.TaskExecutorConfigurations$AsyncConfigurerConfiguration'
+2026-10-22T18:07:03.157Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'applicationTaskExecutorAsyncConfigurer'
+2026-10-22T18:07:03.157Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'applicationTaskExecutorAsyncConfigurer' via factory method to bean named 'org.springframework.beans.factory.support.DefaultListableBeanFactory@5287ba5f'
+2026-10-22T18:07:03.157Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.task.TaskExecutorConfigurations$BootstrapExecutorConfiguration'
+2026-10-22T18:07:03.157Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration'
+2026-10-22T18:07:03.158Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.task.TaskSchedulingConfigurations$ThreadPoolTaskSchedulerBuilderConfiguration'
+2026-10-22T18:07:03.158Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'threadPoolTaskSchedulerBuilder'
+2026-10-22T18:07:03.158Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'spring.task.scheduling-org.springframework.boot.autoconfigure.task.TaskSchedulingProperties'
+2026-10-22T18:07:03.158Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'threadPoolTaskSchedulerBuilder' via factory method to bean named 'spring.task.scheduling-org.springframework.boot.autoconfigure.task.TaskSchedulingProperties'
+2026-10-22T18:07:03.159Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.task.TaskSchedulingConfigurations$SimpleAsyncTaskSchedulerBuilderConfiguration'
+2026-10-22T18:07:03.159Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'org.springframework.boot.autoconfigure.task.TaskSchedulingConfigurations$SimpleAsyncTaskSchedulerBuilderConfiguration' via constructor to bean named 'spring.task.scheduling-org.springframework.boot.autoconfigure.task.TaskSchedulingProperties'
+2026-10-22T18:07:03.159Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'simpleAsyncTaskSchedulerBuilder'
+2026-10-22T18:07:03.159Z DEBUG 92 --- [ep3] [           main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.task.TaskSchedulingAutoConfiguration'
+2026-10-22T18:07:03.161Z  INFO 92 --- [ep3] [           main] lab.TrapAndFixTest$Fix                   : Started TrapAndFixTest.Fix in 0.326 seconds (process running for 4.837)
+JUnit ep3-configuration: tests="2" errors="0" skipped="0" failures="0"
+JUnit ep3-configuration: tests="2" errors="0" skipped="0" failures="0"
 == Python evidence tests
 test_no_host_paths_names_or_tokens_in_any_file (test_common.NothingPrivate.test_no_host_paths_names_or_tokens_in_any_file) ... ok
 test_the_extra_words_are_really_checked (test_common.NothingPrivate.test_the_extra_words_are_really_checked) ... ok
@@ -92,6 +135,9 @@ test_panel_rows_are_captured_lines (test_ep1.BeforeAfterPanel.test_panel_rows_ar
 test_a_transaction_was_created_then_rolled_back_in_that_order (test_ep1.Fix.test_a_transaction_was_created_then_rolled_back_in_that_order) ... ok
 test_boot_4_1_2_and_exit_0 (test_ep1.Fix.test_boot_4_1_2_and_exit_0) ... ok
 test_the_row_was_undone (test_ep1.Fix.test_the_row_was_undone) ... ok
+test_exactly_one_transaction_the_outer_one (test_ep1.FollowUp.test_exactly_one_transaction_the_outer_one) ... ok
+test_requires_new_was_never_applied (test_ep1.FollowUp.test_requires_new_was_never_applied) ... ok
+test_the_insert_ran_in_the_outer_transaction_and_was_undone (test_ep1.FollowUp.test_the_insert_ran_in_the_outer_transaction_and_was_undone) ... ok
 test_boot_4_1_2_and_exit_0 (test_ep1.Trap.test_boot_4_1_2_and_exit_0) ... ok
 test_no_transaction_was_created_or_rolled_back (test_ep1.Trap.test_no_transaction_was_created_or_rolled_back) ... ok
 test_the_insert_ran_without_a_transaction (test_ep1.Trap.test_the_insert_ran_without_a_transaction) ... ok
@@ -104,8 +150,17 @@ test_panel_rows_are_captured_lines (test_ep2.Panels.test_panel_rows_are_captured
 test_one_ticket_built_at_startup_before_the_calls (test_ep2.Trap.test_one_ticket_built_at_startup_before_the_calls) ... ok
 test_the_container_creates_no_ticket_during_the_calls (test_ep2.Trap.test_the_container_creates_no_ticket_during_the_calls) ... ok
 test_three_calls_one_ticket_same_identity (test_ep2.Trap.test_three_calls_one_ticket_same_identity) ... ok
+test_boot_4_1_2_exit_0 (test_ep3.Common.test_boot_4_1_2_exit_0) ... ok
+test_the_container_creates_the_auditlog_bean_once_in_both_runs (test_ep3.Common.test_the_container_creates_the_auditlog_bean_once_in_both_runs) ... ok
+test_appbeans_was_enhanced_with_cglib (test_ep3.Fix.test_appbeans_was_enhanced_with_cglib) ... ok
+test_one_object (test_ep3.Fix.test_one_object) ... ok
+test_the_constructor_ran_once (test_ep3.Fix.test_the_constructor_ran_once) ... ok
+test_panel_rows_are_captured_lines (test_ep3.Panels.test_panel_rows_are_captured_lines) ... ok
+test_no_enhanced_appbeans (test_ep3.Trap.test_no_enhanced_appbeans) ... ok
+test_the_constructor_ran_twice (test_ep3.Trap.test_the_constructor_ran_twice) ... ok
+test_two_different_objects (test_ep3.Trap.test_two_different_objects) ... ok
 
 ----------------------------------------------------------------------
-Ran 19 tests in 0.728s
+Ran 31 tests in 1.187s
 
 OK
