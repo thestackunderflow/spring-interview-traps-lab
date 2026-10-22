@@ -1,0 +1,30 @@
+{
+  "schema": "logcap.run.v1",
+  "scenario": "ep1-follow",
+  "source": "docker",
+  "command": [
+    "--memory",
+    "768m",
+    "traps-lab-ep1-transactional:1.0",
+    "--spring.profiles.active=follow"
+  ],
+  "image": {
+    "ref": "traps-lab-ep1-transactional:1.0",
+    "id": "sha256:16ed11bb53249feb89914d7bdcd05fb4815406baf7fb3362bbd0a2f89ff4d07a"
+  },
+  "versions": {
+    "springBoot": "4.1.2",
+    "java": "21.0.12.1"
+  },
+  "clock": "docker-daemon",
+  "t0": "2026-10-22T13:20:46.764236425Z",
+  "exitCode": 0,
+  "exitSource": "docker wait",
+  "finishedAt": "2026-10-22T13:20:47.711001815Z",
+  "tExitMs": 946.765,
+  "tty": false,
+  "flags": [],
+  "redactions": [],
+  "lines": 77,
+  "sha256": "1134e0728f13a13bacc17271210e56c9efc041f49782bb6277d6df4e64a87839"
+}

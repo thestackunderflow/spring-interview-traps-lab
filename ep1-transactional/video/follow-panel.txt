@@ -1,0 +1,4 @@
+# follow-up run: both methods @Transactional
+follow: Creating new transaction with name [lab.follow …
+follow: LAB: orders after failure = 0
+# only 1 transaction line in the whole run

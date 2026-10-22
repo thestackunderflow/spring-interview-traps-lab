@@ -79,10 +79,13 @@ class BeforeAfterPanel(unittest.TestCase):
         path = os.path.join(LAB, 'ep1-transactional', 'video', 'before-after-panel.txt')
         with open(path, encoding='utf-8') as f:
             rows = [r.rstrip('\n') for r in f]
-        trap, fix = lines('ep1-trap'), lines('ep1-fix')
+        trap, fix, follow = lines('ep1-trap'), lines('ep1-fix'), lines('ep1-follow')
         for r in rows:   # '# ...' rows are our labels; a trailing ' …' marks a cut line (the rest is verbatim)
             body = r[6:][:-2] if r.endswith(' …') else r[6:]
-            if r.startswith('trap: '):
+            if r.startswith('follow: '):
+                b = r[8:][:-2] if r.endswith(' …') else r[8:]
+                self.assertTrue(any(b in t for t in follow), r)
+            elif r.startswith('trap: '):
                 self.assertTrue(any(body in t for t in trap), r)
             elif r.startswith('fix:  '):
                 self.assertTrue(any(body in t for t in fix), r)
