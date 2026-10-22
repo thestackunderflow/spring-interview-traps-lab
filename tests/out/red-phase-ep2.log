@@ -1,0 +1,7 @@
+[ERROR] /lab/ep2-prototype/src/test/java/lab/TrapAndFixTest.java:[26,20] cannot find symbol
+[ERROR] /lab/ep2-prototype/src/test/java/lab/TrapAndFixTest.java:[40,20] cannot find symbol
+[ERROR] /lab/ep2-prototype/src/test/java/lab/VariantShapeTest.java:[22,63] cannot find symbol
+[ERROR] /lab/ep2-prototype/src/test/java/lab/TrapAndFixTest.java:[26,20] cannot find symbol
+[ERROR] /lab/ep2-prototype/src/test/java/lab/TrapAndFixTest.java:[40,20] cannot find symbol
+Ran 8 tests in 0.019s
+FAILED (errors=8)
