@@ -2,6 +2,6 @@
 trap: Executing prepared SQL update
 trap: LAB: at the insert, transaction active = false
 # fixed run: the same insert
-fix:  Creating new transaction with name [lab.fix.OrderWriter …
+fix:  Creating new transaction with name [lab.fix …
 fix:  Executing prepared SQL update
 fix:  LAB: at the insert, transaction active = true

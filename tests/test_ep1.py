@@ -88,7 +88,7 @@ class BeforeAfterPanel(unittest.TestCase):
                 self.assertTrue(any(body in t for t in fix), r)
             else:
                 self.assertTrue(r.startswith('# '), r)
-            self.assertLessEqual(len(r), 64, r)
+            self.assertLessEqual(len(r), 60, r)   # terminal panel rows: <= 60 cells (pr-plan)
 
 
 if __name__ == '__main__':
