@@ -26,3 +26,18 @@ Line numbers are 1-based lines of `run.jsonl` (one JSON object per captured phys
 | before/after panel rows | `ep1-transactional/video/before-after-panel.txt` (every row checked against the captures by `tests/test_ep1.py`) |
 | outcome panel rows | `ep1-transactional/video/outcome-panel.txt` (same test) |
 | docs quote "only external method calls coming in through the proxy are intercepted" | https://docs.spring.io/spring-framework/reference/data-access/transaction/declarative/annotations.html (fetched 22 Oct 2026) |
+
+## Episode 2
+
+| Shown in the video | Source |
+|---|---|
+| `@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)` | `ep2-prototype/src/main/java/lab/Ticket.java` L10 |
+| trap field / call `private final Ticket ticket;` / `return ticket.describe(call);` | `ep2-prototype/src/main/java/lab/trap/TicketCounter.java` L13, L20 |
+| fix `ObjectProvider<Ticket> tickets` / `tickets.getObject().describe(call)` | `ep2-prototype/src/main/java/lab/fix/TicketCounter.java` L13, L20 |
+| trap `LAB: Ticket #1 constructed` | `ep2-prototype/evidence/replays/ep2-trap/run.jsonl` L13 |
+| trap `LAB: bean-factory TRACE logging on from here` | ep2-trap L15 |
+| trap calls 1-3, `Ticket #1, identityHashCode 71c905a3` | ep2-trap L16, L17, L18 |
+| fix `Creating instance of bean 'ticket'` | `ep2-prototype/evidence/replays/ep2-fix/run.jsonl` L15, L19, L23 |
+| fix calls: `#1 67a056f1`, `#2 72ed9aad`, `#3 4690f583` | ep2-fix L18, L22, L26 |
+| docs quote "The prototype instance is the sole instance that is ever supplied to the singleton-scoped bean." | https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html (fetched 22 Oct 2026) |
+| follow-up: destruction callbacks of prototypes are not called | same page: "in the case of prototypes, configured destruction lifecycle callbacks are not called" |

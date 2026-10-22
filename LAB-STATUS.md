@@ -20,3 +20,24 @@
 
 Exit code 0 in both runs. No redactions by logcap. Runs: one container each, image `traps-lab-ep1-transactional:1.0`
 (jar baked in, no bind mount).
+
+Follow-up run (`ep1-follow`, profile `follow`, added after the script gate): `placeOrder` is `@Transactional`,
+`saveAndCharge` is `@Transactional(propagation = REQUIRES_NEW)`, called with `this.`. Exactly one
+`Creating new transaction with name [lab.follow.Checkout.placeOrder]` (L18), no `Suspending current transaction`,
+`LAB: at the insert, transaction active = true`, `Initiating transaction rollback`, `LAB: orders after failure = 0`.
+Captured with the same jar code for trap and fix (only the new `follow` class was added; trap/fix captures kept).
+
+## Episode 2: prototype bean injected into a singleton (`ep2-prototype/`)
+
+**State: DONE, 22 Oct 2026.** Tests: 4 JUnit + 8 evidence tests green. The lab turns on Spring's own TRACE logging for
+`org.springframework.beans.factory.support.DefaultListableBeanFactory` after startup (Boot `LoggingSystem`) and says so
+in a `LAB:` line, so the log shows each bean created during the calls without the startup flood.
+
+| | Expected | Measured |
+|---|---|---|
+| trap: Tickets built | 1, at startup | `LAB: Ticket #1 constructed` (ep2-trap L13), before the TRACE switch (L15) |
+| trap: the 3 calls | same Ticket, same identity | L16-18: `Ticket #1, identityHashCode 71c905a3` three times |
+| trap: `Creating instance of bean 'ticket'` during the calls | 0 | 0 |
+| fix: Tickets built | 3, one per call | `Creating instance of bean 'ticket'` (L15, L19, L23) then `LAB: Ticket #1/#2/#3 constructed` |
+| fix: the 3 calls | 3 Tickets, 3 identities | L18 `#1 67a056f1`, L22 `#2 72ed9aad`, L26 `#3 4690f583` |
+| A/B shape | field, constructor, call | JUnit `VariantShapeTest`: exactly those 4 rows differ in the class body |
