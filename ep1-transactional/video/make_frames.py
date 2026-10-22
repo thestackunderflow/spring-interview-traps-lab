@@ -2,7 +2,7 @@
 - frames/hook-landscape.png (1600x1000): the intro slide's right half and the long video's hook overlay
 - frames/short-frame0.png (1080x1440): the Short's frame-0 overlay (above the caption band)
 - frames/thumb-base.png (1280x720): the thumbnail's evidence crop
-Sources: src/main/java/lab/trap/Checkout.java L21-26, evidence/replays/ep1-trap/run.jsonl (LAB: lines).
+Sources: src/main/java/lab/trap/Checkout.java L21-30, evidence/replays/ep1-trap/run.jsonl (LAB: lines).
 Run (no host installs): docker run --rm -v "<lab>:/lab" tsu-thumbs:0.1 python3 /lab/ep1-transactional/video/make_frames.py
 """
 import json
@@ -16,8 +16,9 @@ SANS_B = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
 INK, RED, MUTED, BLUE, VIOLET = '#1a2230', '#c62828', '#5b6678', '#1d4ed8', '#6d28d9'
 
 src = open(os.path.join(EP, 'src/main/java/lab/trap/Checkout.java'), encoding='utf-8').read().splitlines()
-CODE = [src[i - 1][4:] for i in range(21, 27)]   # placeOrder + the annotated method's first lines, one indent level off
+CODE = [src[i - 1][4:] for i in range(21, 31)]   # placeOrder + saveAndCharge up to its throw, one indent level off
 assert CODE[1].strip() == 'this.saveAndCharge(item);' and CODE[4].strip() == '@Transactional', CODE
+assert CODE[9].strip() == 'throw new PaymentDeclinedException(item);', CODE
 run = [json.loads(l)['text'] for l in open(os.path.join(EP, 'evidence/replays/ep1-trap/run.jsonl'), encoding='utf-8')]
 THREW = next(t for t in run if t.startswith('LAB: placeOrder threw '))
 COUNT = next(t for t in run if t.startswith('LAB: orders after failure = '))
@@ -57,11 +58,11 @@ os.makedirs(out, exist_ok=True)
 code_rows = [(CODE[0], INK, False), (CODE[1], RED, True), (CODE[2], INK, False), ('', INK, False),
              (CODE[4], VIOLET, False), (CODE[5], INK, False)]
 card(os.path.join(out, 'hook-landscape.png'), 1600, 1000, 40, 'Checkout.java · Spring Boot 4.1.2',
-     'Real lab run, 22 Oct 2026 · lines as captured',
-     code_rows + [('  ...throws PaymentDeclinedException', MUTED, False), ('', INK, False), (COUNT, RED, True)])
+     'Real lab run, 22 Oct 2026 · code from Checkout.java · PaymentDeclinedException is unchecked',
+     code_rows + [('    ...', MUTED, False), (CODE[9], INK, False), ('', INK, False), (COUNT, RED, True)])
 card(os.path.join(out, 'short-frame0.png'), 1080, 1440, 36, 'Spring Boot 4.1.2 · real run',
      'Real lab run, 22 Oct 2026, as captured',
-     code_rows + [('', INK, False), ('...it threw. Then:', MUTED, False), (COUNT, RED, True), ('', INK, False),
+     code_rows + [('', INK, False), ('...threw a RuntimeException. Then:', MUTED, False), (COUNT, RED, True), ('', INK, False),
                   ('The row stayed. Why?', INK, False)])
 # thumbnail base: the outcome line only, big
 im = Image.new('RGB', (1280, 720), '#ffffff')

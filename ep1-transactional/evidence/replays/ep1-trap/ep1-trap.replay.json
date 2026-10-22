@@ -3,7 +3,7 @@
   "id": "traps1-trap",
   "run": "run.jsonl",
   "format": "spring-boot",
-  "title": "app log · trap: this.saveAndCharge() · real run",
+  "title": "app log · trap version · real run",
   "show": [
     "thread",
     "logger"
@@ -20,12 +20,12 @@
     },
     {
       "from": {
-        "seq": 12
+        "seq": 10
       },
       "to": {
         "seq": 15
       },
-      "label": "database pool starts; app started"
+      "label": "app starts, connects to the database"
     },
     {
       "from": {
@@ -43,7 +43,7 @@
       "to": {
         "seq": 25
       },
-      "label": "pool shuts down; app exits"
+      "label": "app closes"
     }
   ],
   "segments": [
@@ -65,9 +65,9 @@
     {
       "id": "insert",
       "at": {
-        "match": "Executing prepared SQL update"
+        "match": "insert into orders\\(item\\)"
       },
-      "tag": "No transaction at this insert",
+      "tag": "Insert runs with no transaction",
       "kind": "live"
     },
     {
@@ -91,7 +91,7 @@
       "at": {
         "match": "^LAB: orders after failure = 1$"
       },
-      "tag": "Row still saved: 1 order",
+      "tag": "Orders left after error: 1",
       "kind": "live"
     }
   ]

@@ -3,7 +3,7 @@
   "id": "traps1-fix",
   "run": "run.jsonl",
   "format": "spring-boot",
-  "title": "app log · fix: writer.saveAndCharge() · real run",
+  "title": "app log · fixed version · real run",
   "show": [
     "thread",
     "logger"
@@ -25,7 +25,7 @@
       "to": {
         "seq": 15
       },
-      "label": "Spring Boot starts, profile fix"
+      "label": "app starts, connects to the database"
     },
     {
       "from": {
@@ -43,7 +43,7 @@
       "to": {
         "seq": 67
       },
-      "label": "rollback trace and its stack frames"
+      "label": "the error's details"
     },
     {
       "from": {
@@ -70,7 +70,7 @@
       "to": {
         "seq": 76
       },
-      "label": "pool shuts down; app exits"
+      "label": "app closes"
     }
   ],
   "segments": [
@@ -81,6 +81,14 @@
     }
   ],
   "events": [
+    {
+      "id": "outside",
+      "at": {
+        "match": "^LAB: calling placeOrder"
+      },
+      "tag": "Our call, from outside the bean",
+      "kind": "live"
+    },
     {
       "id": "created",
       "at": {
@@ -93,9 +101,9 @@
     {
       "id": "insert",
       "at": {
-        "match": "Executing prepared SQL update"
+        "match": "insert into orders\\(item\\)"
       },
-      "tag": "Insert runs inside the transaction",
+      "tag": "Insert runs inside a transaction",
       "kind": "live"
     },
     {
@@ -119,7 +127,7 @@
       "at": {
         "match": "^LAB: orders after failure = 0$"
       },
-      "tag": "No row saved: 0 orders",
+      "tag": "Orders left after error: 0",
       "kind": "live"
     }
   ]

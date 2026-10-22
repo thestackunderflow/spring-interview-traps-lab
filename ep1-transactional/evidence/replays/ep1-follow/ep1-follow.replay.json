@@ -1,0 +1,126 @@
+{
+  "schema": "logreplay.annot.v1",
+  "id": "traps1-follow",
+  "run": "run.jsonl",
+  "format": "spring-boot",
+  "title": "app log · follow-up: both @Transactional · real run",
+  "show": [
+    "thread",
+    "logger"
+  ],
+  "elidePaths": true,
+  "probes": [
+    "^LAB: "
+  ],
+  "folds": [
+    {
+      "from": "start",
+      "to": "banner-end",
+      "label": "Spring Boot banner"
+    },
+    {
+      "from": {
+        "seq": 10
+      },
+      "to": {
+        "seq": 15
+      },
+      "label": "app starts, connects to the database"
+    },
+    {
+      "from": {
+        "seq": 18
+      },
+      "to": {
+        "seq": 20
+      },
+      "label": "connection taken for the transaction"
+    },
+    {
+      "from": {
+        "seq": 24
+      },
+      "to": {
+        "seq": 67
+      },
+      "label": "the error's details"
+    },
+    {
+      "from": {
+        "seq": 69
+      },
+      "to": {
+        "seq": 70
+      },
+      "label": "rolled back; connection released"
+    },
+    {
+      "from": {
+        "seq": 72
+      },
+      "to": {
+        "seq": 73
+      },
+      "label": "the lab's count query"
+    },
+    {
+      "from": {
+        "seq": 75
+      },
+      "to": {
+        "seq": 76
+      },
+      "label": "app closes"
+    }
+  ],
+  "segments": [
+    {
+      "until": "end",
+      "mode": "step",
+      "dwellMs": 450
+    }
+  ],
+  "events": [
+    {
+      "id": "outside",
+      "at": {
+        "match": "^LAB: calling placeOrder"
+      },
+      "tag": "Our call, from outside the bean",
+      "kind": "live"
+    },
+    {
+      "id": "created",
+      "at": {
+        "match": "Creating new transaction with name \\[lab\\.follow\\.Checkout\\.placeOrder\\]"
+      },
+      "tag": "One transaction: placeOrder's",
+      "kind": "live",
+      "predictMs": 2500
+    },
+    {
+      "id": "probe",
+      "at": {
+        "match": "^LAB: at the insert, transaction active = true$"
+      },
+      "tag": "Inner insert: same transaction",
+      "kind": "live"
+    },
+    {
+      "id": "rollback",
+      "at": {
+        "match": "Initiating transaction rollback"
+      },
+      "tag": "Everything rolls back together",
+      "kind": "live"
+    },
+    {
+      "id": "count",
+      "at": {
+        "match": "^LAB: orders after failure = 0$"
+      },
+      "tag": "Orders left after error: 0",
+      "kind": "live"
+    }
+  ]
+}
