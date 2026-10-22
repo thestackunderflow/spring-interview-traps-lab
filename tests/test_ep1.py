@@ -91,5 +91,27 @@ class BeforeAfterPanel(unittest.TestCase):
             self.assertLessEqual(len(r), 60, r)   # terminal panel rows: <= 60 cells (pr-plan)
 
 
+class FollowUp(unittest.TestCase):
+    """The interview follow-up (int, acc script M3): placeOrder is @Transactional and calls this.saveAndCharge, which
+    asks for REQUIRES_NEW. Called from outside, how many transactions? The log must show exactly one (the outer one)."""
+
+    def setUp(self):
+        self.l = lines('ep1-follow')
+
+    def test_exactly_one_transaction_the_outer_one(self):
+        created = [t for t in self.l if 'Creating new transaction with name [' in t]
+        self.assertEqual(len(created), 1, created)
+        self.assertIn('Creating new transaction with name [lab.follow.Checkout.placeOrder]', created[0])
+
+    def test_requires_new_was_never_applied(self):
+        self.assertFalse([t for t in self.l if 'Suspending current transaction' in t])
+        self.assertFalse([t for t in self.l if 'saveAndCharge]' in t and 'transaction' in t.lower()])
+
+    def test_the_insert_ran_in_the_outer_transaction_and_was_undone(self):
+        self.assertEqual(has(self.l, 'LAB: at the insert, transaction active = '), ['LAB: at the insert, transaction active = true'])
+        self.assertEqual(len(has(self.l, 'Initiating transaction rollback')), 1)
+        self.assertEqual(has(self.l, 'LAB: orders after failure = '), ['LAB: orders after failure = 0'])
+
+
 if __name__ == '__main__':
     unittest.main()
