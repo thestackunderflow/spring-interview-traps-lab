@@ -1,0 +1,6 @@
+[ERROR] /lab/ep3-configuration/src/test/java/lab/TrapAndFixTest.java:[23,20] cannot find symbol
+[ERROR] /lab/ep3-configuration/src/test/java/lab/TrapAndFixTest.java:[24,20] cannot find symbol
+[ERROR] /lab/ep3-configuration/src/test/java/lab/TrapAndFixTest.java:[36,20] cannot find symbol
+[ERROR] /lab/ep3-configuration/src/test/java/lab/TrapAndFixTest.java:[37,20] cannot find symbol
+Ran 9 tests in 0.016s
+FAILED (errors=9)
