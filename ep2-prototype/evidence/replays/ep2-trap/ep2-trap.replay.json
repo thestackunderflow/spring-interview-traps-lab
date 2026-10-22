@@ -3,7 +3,7 @@
   "id": "traps2-trap",
   "run": "run.jsonl",
   "format": "spring-boot",
-  "title": "app log · trap: Ticket injected once · real run",
+  "title": "app log · trap version · real run",
   "show": [
     "thread",
     "logger"
@@ -20,12 +20,21 @@
     },
     {
       "from": {
+        "seq": 10
+      },
+      "to": {
+        "seq": 11
+      },
+      "label": "app starts (trap version)"
+    },
+    {
+      "from": {
         "seq": 18
       },
       "to": {
         "seq": 25
       },
-      "label": "shutdown: bean factory TRACE lines"
+      "label": "app closes"
     }
   ],
   "segments": [
@@ -41,7 +50,7 @@
       "at": {
         "match": "^LAB: Ticket #1 constructed$"
       },
-      "tag": "One ticket, made at startup",
+      "tag": "Ticket #1 made at startup",
       "kind": "live"
     },
     {
@@ -67,14 +76,14 @@
       },
       "tag": "Call 2: still Ticket #1",
       "kind": "live",
-      "predictMs": 1500
+      "predictMs": 3500
     },
     {
       "id": "call3",
       "at": {
         "match": "^LAB: call 3 served"
       },
-      "tag": "Same object, same identity code",
+      "tag": "Call 3: same identity hash code",
       "kind": "live"
     }
   ]

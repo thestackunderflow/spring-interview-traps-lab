@@ -3,7 +3,7 @@
   "id": "traps2-fix",
   "run": "run.jsonl",
   "format": "spring-boot",
-  "title": "app log · fix: ObjectProvider.getObject() · real run",
+  "title": "app log · fixed version · real run",
   "show": [
     "thread",
     "logger"
@@ -25,7 +25,7 @@
       "to": {
         "seq": 12
       },
-      "label": "Spring Boot starts, profile fix"
+      "label": "app starts (fix version)"
     },
     {
       "from": {
@@ -34,7 +34,7 @@
       "to": {
         "seq": 33
       },
-      "label": "shutdown: bean factory TRACE lines"
+      "label": "app closes"
     }
   ],
   "segments": [
@@ -59,7 +59,7 @@
         "match": "Creating instance of bean 'ticket'",
         "nth": 1
       },
-      "tag": "Container makes a new ticket",
+      "tag": "Spring makes a new Ticket",
       "kind": "live",
       "predictMs": 1500
     },
@@ -84,7 +84,7 @@
       "at": {
         "match": "^LAB: call 3 served"
       },
-      "tag": "Call 3: Ticket #3, new identity",
+      "tag": "Call 3: new identity hash code",
       "kind": "live"
     }
   ]
