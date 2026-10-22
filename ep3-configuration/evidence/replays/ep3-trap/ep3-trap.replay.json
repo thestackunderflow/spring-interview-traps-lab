@@ -3,7 +3,7 @@
   "id": "traps3-trap",
   "run": "run.jsonl",
   "format": "spring-boot",
-  "title": "app log · trap version (@Component) · real run",
+  "title": "app log · trap version · real run",
   "show": [
     "thread",
     "logger"

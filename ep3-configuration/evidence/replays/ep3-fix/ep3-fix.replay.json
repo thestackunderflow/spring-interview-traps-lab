@@ -3,7 +3,7 @@
   "id": "traps3-fix",
   "run": "run.jsonl",
   "format": "spring-boot",
-  "title": "app log · fixed version (@Configuration) · real run",
+  "title": "app log · fixed version · real run",
   "show": [
     "thread",
     "logger"
