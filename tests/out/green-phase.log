@@ -34,11 +34,11 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.5.6.jar:3.5.6]
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.5.6.jar:3.5.6]
 
-2026-10-22T13:08:08.787Z DEBUG 100 --- [ep1] [           main] o.s.jdbc.support.JdbcTransactionManager  : Initiating transaction rollback
-2026-10-22T13:08:08.788Z DEBUG 100 --- [ep1] [           main] o.s.jdbc.support.JdbcTransactionManager  : Rolling back JDBC transaction on Connection [HikariProxyConnection@611181438 wrapping conn10: url=jdbc:h2:mem:shop user=SA]
-2026-10-22T13:08:08.789Z DEBUG 100 --- [ep1] [           main] o.s.jdbc.support.JdbcTransactionManager  : Releasing JDBC Connection [HikariProxyConnection@611181438 wrapping conn10: url=jdbc:h2:mem:shop user=SA] after transaction
-2026-10-22T13:08:08.789Z DEBUG 100 --- [ep1] [           main] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
-2026-10-22T13:08:08.789Z DEBUG 100 --- [ep1] [           main] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [select count(*) from orders]
+2026-10-22T13:09:24.498Z DEBUG 99 --- [ep1] [           main] o.s.jdbc.support.JdbcTransactionManager  : Initiating transaction rollback
+2026-10-22T13:09:24.498Z DEBUG 99 --- [ep1] [           main] o.s.jdbc.support.JdbcTransactionManager  : Rolling back JDBC transaction on Connection [HikariProxyConnection@611181438 wrapping conn10: url=jdbc:h2:mem:shop user=SA]
+2026-10-22T13:09:24.499Z DEBUG 99 --- [ep1] [           main] o.s.jdbc.support.JdbcTransactionManager  : Releasing JDBC Connection [HikariProxyConnection@611181438 wrapping conn10: url=jdbc:h2:mem:shop user=SA] after transaction
+2026-10-22T13:09:24.499Z DEBUG 99 --- [ep1] [           main] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
+2026-10-22T13:09:24.499Z DEBUG 99 --- [ep1] [           main] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [select count(*) from orders]
 JUnit ep1-transactional: tests="3" errors="0" skipped="0" failures="0"
 JUnit ep1-transactional: tests="3" errors="0" skipped="0" failures="0"
 == Python evidence tests
@@ -55,6 +55,6 @@ test_the_insert_ran_without_a_transaction (test_ep1.Trap.test_the_insert_ran_wit
 test_the_row_stayed (test_ep1.Trap.test_the_row_stayed) ... ok
 
 ----------------------------------------------------------------------
-Ran 11 tests in 0.420s
+Ran 11 tests in 0.411s
 
 OK

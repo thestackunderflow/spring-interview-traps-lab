@@ -10,21 +10,21 @@
   ],
   "image": {
     "ref": "traps-lab-ep1-transactional:1.0",
-    "id": "sha256:5d7a690e7466dcdd0651e418b4205292637488a66a030346e097cf9b96a3e0d1"
+    "id": "sha256:781094c59d9d38828f52141eb4d150b3ffa86c20d6a2298240eda0b058a56258"
   },
   "versions": {
     "springBoot": "4.1.2",
     "java": "21.0.12.1"
   },
   "clock": "docker-daemon",
-  "t0": "2026-10-22T13:06:38.766532476Z",
+  "t0": "2026-10-22T13:08:55.533056797Z",
   "exitCode": 0,
   "exitSource": "docker wait",
-  "finishedAt": "2026-10-22T13:06:39.447638805Z",
-  "tExitMs": 681.106,
+  "finishedAt": "2026-10-22T13:08:56.209206057Z",
+  "tExitMs": 676.149,
   "tty": false,
   "flags": [],
   "redactions": [],
   "lines": 26,
-  "sha256": "85722ce69835da3e4c606a44935ad5e990763d66ccd863655a4be085a5f10d88"
+  "sha256": "b4cb2fd69d94e1fd349f4fecdc4528fb95e3d6f05eb9f7e14a45c6e95d43815b"
 }

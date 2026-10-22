@@ -19,7 +19,8 @@ public class OrderWriter {
 
     @Transactional
     public void saveAndCharge(String item) {
-        db.sql("insert into orders(item) values (?)").param(item).update();
+        db.sql("insert into orders(item) values (?)")
+                .param(item).update();
         LabProbe.transactionActive();
         throw new PaymentDeclinedException(item);
     }
