@@ -1,0 +1,164 @@
+== JUnit ep1-transactional
+[ERROR] COMPILATION ERROR : 
+[ERROR] /lab/ep1-transactional/src/test/java/lab/TrapAndFixTest.java:[21,39] cannot find symbol
+  symbol:   class Shop
+  location: class lab.TrapAndFixTest
+[ERROR] /lab/ep1-transactional/src/test/java/lab/TrapAndFixTest.java:[31,20] cannot find symbol
+  symbol:   class Shop
+  location: class lab.TrapAndFixTest.Trap
+[ERROR] /lab/ep1-transactional/src/test/java/lab/TrapAndFixTest.java:[50,20] cannot find symbol
+  symbol:   class Shop
+  location: class lab.TrapAndFixTest.Fix
+[ERROR] /lab/ep1-transactional/src/test/java/lab/TrapAndFixTest.java:[23,22] cannot find symbol
+  symbol:   class PaymentDeclinedException
+  location: class lab.TrapAndFixTest
+[ERROR] /lab/ep1-transactional/src/test/java/lab/VariantShapeTest.java:[63,25] package lab.trap does not exist
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.15.0:testCompile (default-testCompile) on project ep1-transactional: Compilation failure: Compilation failure: 
+[ERROR] /lab/ep1-transactional/src/test/java/lab/TrapAndFixTest.java:[21,39] cannot find symbol
+[ERROR]   symbol:   class Shop
+[ERROR]   location: class lab.TrapAndFixTest
+[ERROR] /lab/ep1-transactional/src/test/java/lab/TrapAndFixTest.java:[31,20] cannot find symbol
+[ERROR]   symbol:   class Shop
+[ERROR]   location: class lab.TrapAndFixTest.Trap
+[ERROR] /lab/ep1-transactional/src/test/java/lab/TrapAndFixTest.java:[50,20] cannot find symbol
+[ERROR]   symbol:   class Shop
+[ERROR]   location: class lab.TrapAndFixTest.Fix
+[ERROR] /lab/ep1-transactional/src/test/java/lab/TrapAndFixTest.java:[23,22] cannot find symbol
+[ERROR]   symbol:   class PaymentDeclinedException
+[ERROR]   location: class lab.TrapAndFixTest
+[ERROR] /lab/ep1-transactional/src/test/java/lab/VariantShapeTest.java:[63,25] package lab.trap does not exist
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+== Python evidence tests
+test_no_host_paths_names_or_tokens_in_any_file (test_common.NothingPrivate.test_no_host_paths_names_or_tokens_in_any_file) ... FAIL
+test_the_extra_words_are_really_checked (test_common.NothingPrivate.test_the_extra_words_are_really_checked) ... ok
+test_every_tag_is_on_a_captured_line (test_common.TagsSitOnRealLines.test_every_tag_is_on_a_captured_line) ... FAIL
+test_panel_rows_are_captured_lines (test_ep1.BeforeAfterPanel.test_panel_rows_are_captured_lines) ... ERROR
+test_a_transaction_was_created_then_rolled_back_in_that_order (test_ep1.Fix.test_a_transaction_was_created_then_rolled_back_in_that_order) ... ERROR
+test_boot_4_1_2_and_exit_0 (test_ep1.Fix.test_boot_4_1_2_and_exit_0) ... ERROR
+test_the_row_was_undone (test_ep1.Fix.test_the_row_was_undone) ... ERROR
+test_boot_4_1_2_and_exit_0 (test_ep1.Trap.test_boot_4_1_2_and_exit_0) ... ERROR
+test_no_transaction_was_created_or_rolled_back (test_ep1.Trap.test_no_transaction_was_created_or_rolled_back) ... ERROR
+test_the_insert_ran_without_a_transaction (test_ep1.Trap.test_the_insert_ran_without_a_transaction) ... ERROR
+test_the_row_stayed (test_ep1.Trap.test_the_row_stayed) ... ERROR
+
+======================================================================
+ERROR: test_panel_rows_are_captured_lines (test_ep1.BeforeAfterPanel.test_panel_rows_are_captured_lines)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/lab/tests/test_ep1.py", line 80, in test_panel_rows_are_captured_lines
+    with open(path, encoding='utf-8') as f:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/lab/ep1-transactional/video/before-after-panel.txt'
+
+======================================================================
+ERROR: test_a_transaction_was_created_then_rolled_back_in_that_order (test_ep1.Fix.test_a_transaction_was_created_then_rolled_back_in_that_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/lab/tests/test_ep1.py", line 52, in setUp
+    self.l = lines('ep1-fix')
+             ~~~~~^^^^^^^^^^^
+  File "/lab/tests/test_ep1.py", line 14, in lines
+    with open(os.path.join(EV, scenario, 'run.jsonl'), encoding='utf-8') as f:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/lab/ep1-transactional/evidence/replays/ep1-fix/run.jsonl'
+
+======================================================================
+ERROR: test_boot_4_1_2_and_exit_0 (test_ep1.Fix.test_boot_4_1_2_and_exit_0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/lab/tests/test_ep1.py", line 52, in setUp
+    self.l = lines('ep1-fix')
+             ~~~~~^^^^^^^^^^^
+  File "/lab/tests/test_ep1.py", line 14, in lines
+    with open(os.path.join(EV, scenario, 'run.jsonl'), encoding='utf-8') as f:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/lab/ep1-transactional/evidence/replays/ep1-fix/run.jsonl'
+
+======================================================================
+ERROR: test_the_row_was_undone (test_ep1.Fix.test_the_row_was_undone)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/lab/tests/test_ep1.py", line 52, in setUp
+    self.l = lines('ep1-fix')
+             ~~~~~^^^^^^^^^^^
+  File "/lab/tests/test_ep1.py", line 14, in lines
+    with open(os.path.join(EV, scenario, 'run.jsonl'), encoding='utf-8') as f:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/lab/ep1-transactional/evidence/replays/ep1-fix/run.jsonl'
+
+======================================================================
+ERROR: test_boot_4_1_2_and_exit_0 (test_ep1.Trap.test_boot_4_1_2_and_exit_0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/lab/tests/test_ep1.py", line 29, in setUp
+    self.l = lines('ep1-trap')
+             ~~~~~^^^^^^^^^^^^
+  File "/lab/tests/test_ep1.py", line 14, in lines
+    with open(os.path.join(EV, scenario, 'run.jsonl'), encoding='utf-8') as f:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/lab/ep1-transactional/evidence/replays/ep1-trap/run.jsonl'
+
+======================================================================
+ERROR: test_no_transaction_was_created_or_rolled_back (test_ep1.Trap.test_no_transaction_was_created_or_rolled_back)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/lab/tests/test_ep1.py", line 29, in setUp
+    self.l = lines('ep1-trap')
+             ~~~~~^^^^^^^^^^^^
+  File "/lab/tests/test_ep1.py", line 14, in lines
+    with open(os.path.join(EV, scenario, 'run.jsonl'), encoding='utf-8') as f:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/lab/ep1-transactional/evidence/replays/ep1-trap/run.jsonl'
+
+======================================================================
+ERROR: test_the_insert_ran_without_a_transaction (test_ep1.Trap.test_the_insert_ran_without_a_transaction)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/lab/tests/test_ep1.py", line 29, in setUp
+    self.l = lines('ep1-trap')
+             ~~~~~^^^^^^^^^^^^
+  File "/lab/tests/test_ep1.py", line 14, in lines
+    with open(os.path.join(EV, scenario, 'run.jsonl'), encoding='utf-8') as f:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/lab/ep1-transactional/evidence/replays/ep1-trap/run.jsonl'
+
+======================================================================
+ERROR: test_the_row_stayed (test_ep1.Trap.test_the_row_stayed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/lab/tests/test_ep1.py", line 29, in setUp
+    self.l = lines('ep1-trap')
+             ~~~~~^^^^^^^^^^^^
+  File "/lab/tests/test_ep1.py", line 14, in lines
+    with open(os.path.join(EV, scenario, 'run.jsonl'), encoding='utf-8') as f:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/lab/ep1-transactional/evidence/replays/ep1-trap/run.jsonl'
+
+======================================================================
+FAIL: test_no_host_paths_names_or_tokens_in_any_file (test_common.NothingPrivate.test_no_host_paths_names_or_tokens_in_any_file)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/lab/tests/test_common.py", line 92, in test_no_host_paths_names_or_tokens_in_any_file
+    self.assertFalse(bad, bad)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+AssertionError: ['tests/test_common.py'] is not false : ['tests/test_common.py']
+
+======================================================================
+FAIL: test_every_tag_is_on_a_captured_line (test_common.TagsSitOnRealLines.test_every_tag_is_on_a_captured_line)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/lab/tests/test_common.py", line 44, in test_every_tag_is_on_a_captured_line
+    self.assertTrue(anns, 'no replay annotations yet')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true : no replay annotations yet
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.172s
+
+FAILED (failures=2, errors=8)
