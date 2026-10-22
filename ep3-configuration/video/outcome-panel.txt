@@ -1,0 +1,3 @@
+trap: LAB: AuditLog constructor ran, #1
+trap: LAB: AuditLog constructor ran, #2
+trap: LAB: same object? false

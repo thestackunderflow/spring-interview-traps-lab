@@ -1,0 +1,8 @@
+# trap run: @Component
+trap: Creating shared instance of singleton bean 'auditLog'
+trap: LAB: AuditLog constructor ran, #1
+trap: LAB: AuditLog constructor ran, #2
+# fixed run: @Configuration
+fix:  Successfully enhanced lab.fix.AppBeans …
+fix:  Creating shared instance of singleton bean 'auditLog'
+fix:  LAB: AuditLog constructor ran, #1

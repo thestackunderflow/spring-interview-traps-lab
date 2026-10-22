@@ -1,0 +1,10 @@
+# Episode 3. Real framework logging only (PLAN rev 2, 4.3; acc M3): DEBUG on the bean factory prints one
+# "Creating shared instance of singleton bean" per singleton; TRACE on ConfigurationClassEnhancer prints
+# "Successfully enhanced ..." for each @Configuration class Spring rewrites with CGLIB.
+spring:
+  application:
+    name: ep3
+logging:
+  level:
+    org.springframework.beans.factory.support.DefaultListableBeanFactory: DEBUG
+    org.springframework.context.annotation.ConfigurationClassEnhancer: TRACE
