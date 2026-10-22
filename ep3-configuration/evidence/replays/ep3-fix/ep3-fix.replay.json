@@ -1,0 +1,99 @@
+{
+  "schema": "logreplay.annot.v1",
+  "id": "traps3-fix",
+  "run": "run.jsonl",
+  "format": "spring-boot",
+  "title": "app log · fixed version (@Configuration) · real run",
+  "show": [
+    "thread",
+    "logger"
+  ],
+  "elidePaths": true,
+  "probes": [
+    "^LAB: "
+  ],
+  "folds": [
+    {
+      "from": "start",
+      "to": "banner-end",
+      "label": "Spring Boot banner"
+    },
+    {
+      "from": {
+        "seq": 10
+      },
+      "to": {
+        "seq": 13
+      },
+      "label": "app starts (fix version)"
+    },
+    {
+      "from": {
+        "seq": 15
+      },
+      "to": {
+        "seq": 35
+      },
+      "label": "Spring creates its own beans"
+    },
+    {
+      "from": {
+        "seq": 40
+      },
+      "to": {
+        "seq": 81
+      },
+      "label": "the rest of startup"
+    }
+  ],
+  "segments": [
+    {
+      "until": "end",
+      "mode": "step",
+      "dwellMs": 450
+    }
+  ],
+  "events": [
+    {
+      "id": "enhanced",
+      "at": {
+        "match": "Successfully enhanced lab\\.fix\\.AppBeans"
+      },
+      "tag": "Spring rewrites AppBeans: a subclass",
+      "kind": "live"
+    },
+    {
+      "id": "create",
+      "at": {
+        "match": "Creating shared instance of singleton bean 'auditLog'"
+      },
+      "tag": "Spring creates the auditLog bean",
+      "kind": "live"
+    },
+    {
+      "id": "built1",
+      "at": {
+        "match": "^LAB: AuditLog constructor ran, #1$"
+      },
+      "tag": "Constructor run #1",
+      "kind": "live"
+    },
+    {
+      "id": "order",
+      "at": {
+        "match": "Creating shared instance of singleton bean 'orderService'"
+      },
+      "tag": "orderService() calls auditLog()",
+      "kind": "live",
+      "predictMs": 2500
+    },
+    {
+      "id": "same",
+      "at": {
+        "match": "^LAB: same object\\? true$"
+      },
+      "tag": "One AuditLog object",
+      "kind": "live"
+    }
+  ]
+}
