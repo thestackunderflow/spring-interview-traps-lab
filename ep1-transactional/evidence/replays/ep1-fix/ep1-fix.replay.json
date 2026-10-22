@@ -1,6 +1,6 @@
 {
   "schema": "logreplay.annot.v1",
-  "id": "ep1-fix",
+  "id": "traps1-fix",
   "run": "run.jsonl",
   "format": "spring-boot",
   "title": "app log · fix: writer.saveAndCharge() · real run",
