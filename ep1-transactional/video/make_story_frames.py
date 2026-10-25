@@ -98,7 +98,7 @@ step(d, X1, 160, SW, '1', ['Save', 'your order'], receipt, GREEN, outline=GREEN,
 step(d, X2, 160, SW, '2', ['Charge', 'your card'], card_icon, RED, outline=RED, width=6, mark='cross', note='declined (test)', note_col=RED)
 centered(d, 655, 'The order stayed saved:', font(SANS_B, 60), INK)
 centered(d, 728, 'an order nobody paid for', font(SANS_B, 60), RED)
-centered(d, 818, 'The app printed:', font(SANS_B, 40), INK)
+centered(d, 818, 'Our test app printed:', font(SANS_B, 40), INK)
 centered(d, 870, COUNT, font(MONO, 44), INK)
 im.save(os.path.join(out, 'story-2-wrong.png'))
 
