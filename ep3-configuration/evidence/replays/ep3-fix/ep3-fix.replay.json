@@ -3,7 +3,7 @@
   "id": "traps3-fix",
   "run": "run.jsonl",
   "format": "spring-boot",
-  "title": "app log · fixed version · real run",
+  "title": "app diary · fixed run",
   "show": [
     "thread",
     "logger"
@@ -59,7 +59,7 @@
       "at": {
         "match": "Successfully enhanced lab\\.fix\\.AppBeans"
       },
-      "tag": "Spring rewrites AppBeans: a subclass",
+      "tag": "Spring makes the edited book",
       "kind": "live"
     },
     {
